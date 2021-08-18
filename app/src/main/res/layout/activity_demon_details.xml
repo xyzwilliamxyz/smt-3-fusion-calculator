@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:id="@+id/rootLayout"
+    tools:context=".ui.demondetails.DemonDetailsActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/rootContainer"
+        android:background="@color/background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="@dimen/card_corner"
+                app:cardElevation="@dimen/card_elevation">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/HighlightTextViewStyle"
+                        android:paddingVertical="8dp"
+                        android:text="@string/stats" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/list_header"
+                        android:orientation="horizontal"
+                        android:paddingVertical="4dp"
+                        android:paddingStart="8dp">
+
+                        <TextView
+                            android:id="@+id/priceLabel"
+                            style="@style/HeaderTextViewStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.2"
+                            android:text="@string/price" />
+
+                        <TextView
+                            android:id="@+id/hpLabel"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            style="@style/HeaderTextViewStyle"
+                            android:layout_weight="0.15"
+                            android:text="@string/hp" />
+
+                        <TextView
+                            android:id="@+id/mpLabel"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            style="@style/HeaderTextViewStyle"
+                            android:layout_weight="0.15"
+                            android:text="@string/mp" />
+
+                        <TextView
+                            android:id="@+id/stLabel"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            style="@style/HeaderTextViewStyle"
+                            android:layout_weight="0.1"
+                            android:text="@string/st" />
+
+                        <TextView
+                            android:id="@+id/maLabel"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            style="@style/HeaderTextViewStyle"
+                            android:layout_weight="0.1"
+                            android:text="@string/ma" />
+
+                        <TextView
+                            android:id="@+id/viLabel"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            style="@style/HeaderTextViewStyle"
+                            android:layout_weight="0.1"
+                            android:text="@string/vi" />
+
+                        <TextView
+                            android:id="@+id/agLabel"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            style="@style/HeaderTextViewStyle"
+                            android:layout_weight="0.1"
+                            android:text="@string/ag" />
+
+                        <TextView
+                            android:id="@+id/luLabel"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            style="@style/HeaderTextViewStyle"
+                            android:layout_weight="0.1"
+                            android:text="@string/lu" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/line_odd"
+                        android:orientation="horizontal"
+                        android:paddingVertical="8dp"
+                        android:paddingStart="8dp">
+
+                        <TextView
+                            android:id="@+id/price"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            style="@style/DefaultTextViewStyle"
+                            android:layout_weight="0.2"
+                            tools:text="3600" />
+
+                        <TextView
+                            android:id="@+id/hp"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            style="@style/DefaultTextViewStyle"
+                            android:layout_weight="0.15"
+                            tools:text="78" />
+
+                        <TextView
+                            android:id="@+id/mp"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            style="@style/DefaultTextViewStyle"
+                            android:layout_weight="0.15"
+                            tools:text="45" />
+
+                        <TextView
+                            android:id="@+id/st"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            style="@style/DefaultTextViewStyle"
+                            android:layout_weight="0.1"
+                            tools:text="5" />
+
+                        <TextView
+                            android:id="@+id/ma"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            style="@style/DefaultTextViewStyle"
+                            android:layout_weight="0.1"
+                            tools:text="8" />
+
+                        <TextView
+                            android:id="@+id/vi"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            style="@style/DefaultTextViewStyle"
+                            android:layout_weight="0.1"
+                            tools:text="6" />
+
+                        <TextView
+                            android:id="@+id/ag"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            style="@style/DefaultTextViewStyle"
+                            android:layout_weight="0.1"
+                            tools:text="4" />
+
+                        <TextView
+                            android:id="@+id/lu"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            style="@style/DefaultTextViewStyle"
+                            android:layout_weight="0.1"
+                            tools:text="4" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="@dimen/card_corner"
+                app:cardElevation="@dimen/card_elevation">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/HighlightTextViewStyle"
+                        android:paddingVertical="8dp"
+                        android:text="@string/resistances" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/list_header"
+                        android:orientation="horizontal"
+                        android:paddingVertical="8dp">
+
+                        <ImageView
+                            android:id="@+id/physicalLabel"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.1"
+                            android:src="@drawable/phy"
+                            android:contentDescription="@null"/>
+
+                        <ImageView
+                            android:id="@+id/fireLabel"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.1"
+                            android:src="@drawable/fir"
+                            android:contentDescription="@null"/>
+
+                        <ImageView
+                            android:id="@+id/iceLabel"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.1"
+                            android:src="@drawable/ice"
+                            android:contentDescription="@null"/>
+
+                        <ImageView
+                            android:id="@+id/electricLabel"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.1"
+                            android:src="@drawable/ele"
+                            android:contentDescription="@null"/>
+
+                        <ImageView
+                            android:id="@+id/forceLabel"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.1"
+                            android:src="@drawable/force"
+                            android:contentDescription="@null"/>
+
+                        <ImageView
+                            android:id="@+id/expelLabel"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.1"
+                            android:src="@drawable/exp"
+                            android:contentDescription="@null"/>
+
+                        <ImageView
+                            android:id="@+id/deathLabel"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.1"
+                            android:src="@drawable/cur"
+                            android:contentDescription="@null"/>
+
+                        <ImageView
+                            android:id="@+id/mindLabel"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.1"
+                            android:src="@drawable/panic"
+                            android:contentDescription="@null"/>
+
+                        <ImageView
+                            android:id="@+id/nerveLabel"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.1"
+                            android:src="@drawable/bind"
+                            android:contentDescription="@null"/>
+
+                        <ImageView
+                            android:id="@+id/curseLabel"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.1"
+                            android:src="@drawable/poison"
+                            android:contentDescription="@null"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/line_odd"
+                        android:orientation="horizontal"
+                        android:paddingVertical="8dp">
+
+                        <TextView
+                            android:id="@+id/physical"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            style="@style/DefaultTextViewStyle"
+                            android:layout_weight="0.1"
+                            android:gravity="center"
+                            tools:text="wk" />
+
+                        <TextView
+                            android:id="@+id/fire"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            style="@style/DefaultTextViewStyle"
+                            android:layout_weight="0.1"
+                            android:gravity="center"
+                            tools:text="wk" />
+
+                        <TextView
+                            android:id="@+id/ice"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            style="@style/DefaultTextViewStyle"
+                            android:layout_weight="0.1"
+                            android:gravity="center"
+                            tools:text="wk" />
+
+                        <TextView
+                            android:id="@+id/electric"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            style="@style/DefaultTextViewStyle"
+                            android:layout_weight="0.1"
+                            android:gravity="center"
+                            tools:text="wk" />
+
+                        <TextView
+                            android:id="@+id/force"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            style="@style/DefaultTextViewStyle"
+                            android:layout_weight="0.1"
+                            android:gravity="center"
+                            tools:text="wk" />
+
+                        <TextView
+                            android:id="@+id/expel"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            style="@style/DefaultTextViewStyle"
+                            android:layout_weight="0.1"
+                            android:gravity="center"
+                            tools:text="wk" />
+
+                        <TextView
+                            android:id="@+id/death"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            style="@style/DefaultTextViewStyle"
+                            android:layout_weight="0.1"
+                            android:gravity="center"
+                            tools:text="wk" />
+
+                        <TextView
+                            android:id="@+id/mind"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            style="@style/DefaultTextViewStyle"
+                            android:layout_weight="0.1"
+                            android:gravity="center"
+                            tools:text="wk" />
+
+                        <TextView
+                            android:id="@+id/nerve"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            style="@style/DefaultTextViewStyle"
+                            android:layout_weight="0.1"
+                            android:gravity="center"
+                            tools:text="wk" />
+
+                        <TextView
+                            android:id="@+id/curse"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            style="@style/DefaultTextViewStyle"
+                            android:layout_weight="0.1"
+                            android:gravity="center"
+                            tools:text="wk" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="@dimen/card_corner"
+                app:cardElevation="@dimen/card_elevation">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/HighlightTextViewStyle"
+                        android:paddingVertical="8dp"
+                        android:text="@string/inheritable_skills_type" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/list_header"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="4dp">
+
+                        <TextView
+                            android:id="@+id/inheritancesLabel"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            style="@style/DefaultTextViewStyle"
+                            tools:text="Thrust  |  Claw  |  Bite" />
+                    </FrameLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="@dimen/card_corner"
+                app:cardElevation="@dimen/card_elevation">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        style="@style/HighlightTextViewStyle"
+                        android:paddingVertical="8dp"
+                        android:text="@string/skills" />
+
+                    <include
+                        layout="@layout/skill_list_header" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/skills_list"
+                        android:clipToPadding="false"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        android:orientation="vertical"
+                        android:nestedScrollingEnabled="false"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:listitem="@layout/skill_list_item"
+                        tools:itemCount="10" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="16dp"
+                android:orientation="vertical">
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tab_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/highlight"
+                    app:tabTextColor="@color/default_text"
+                    app:tabIndicatorColor="@color/white" />
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/fusions_pager"
+                    android:nestedScrollingEnabled="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/ProgressBarStyle"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">SMT Fusion Calculator</string>
+
+    <string name="tab_reverse_fusions">reverse fusion</string>
+    <string name="tab_forward_fusion">forward fusion</string>
+    <string name="demon_details_title_format">%s %s Lv %s</string>
+    <string name="tab_demons">demons</string>
+    <string name="tab_skills">skills</string>
+    <string name="stats">Stats</string>
+    <string name="price">Price</string>
+    <string name="hp">HP</string>
+    <string name="mp">MP</string>
+    <string name="st">St</string>
+    <string name="ma">Ma</string>
+    <string name="vi">Vi</string>
+    <string name="ag">Ag</string>
+    <string name="lu">Lu</string>
+    <string name="resistances">Resistances</string>
+    <string name="inheritable_skills_type">Inheritable Skills Type</string>
+    <string name="skills">Skills</string>
+    <string name="race">Race</string>
+    <string name="level">Level</string>
+    <string name="level_abbreviation">Lv</string>
+    <string name="name">Name</string>
+    <string name="equals_sign">=</string>
+    <string name="plus_sign">+</string>
+    <string name="hash_sign">#</string>
+    <string name="cost">Cost</string>
+    <string name="target">Target</string>
+    <string name="inherit">Inherit</string>
+</resources>

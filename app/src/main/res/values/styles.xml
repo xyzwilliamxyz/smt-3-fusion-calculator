@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="HeaderTextViewStyle" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/default_text</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="DefaultTextViewStyle" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/default_text</item>
+    </style>
+
+    <style name="HighlightTextViewStyle" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/default_text</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@color/highlight</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ProgressBarStyle" parent="Widget.AppCompat.ProgressBar">
+        <item name="android:indeterminateTint">@color/highlight</item>
+    </style>
+</resources>
