@@ -9,6 +9,7 @@ class DemonEvolutionMapper {
         return demonEntity?.let {
             DemonEvolution(
                 demonId = it.demonId,
+                race = it.race,
                 level = evolvesLevel,
                 name = it.name
             )

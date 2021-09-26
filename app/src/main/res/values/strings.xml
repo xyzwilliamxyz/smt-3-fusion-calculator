@@ -28,4 +28,6 @@
     <string name="cost">Cost</string>
     <string name="target">Target</string>
     <string name="inherit">Inherit</string>
+    <string name="evolves_from">Evolves From</string>
+    <string name="evolves_to">Evolves To</string>
 </resources>

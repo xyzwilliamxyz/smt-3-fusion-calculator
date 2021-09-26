@@ -9,6 +9,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.think4software.smtfusioncalculator.R
 import com.think4software.smtfusioncalculator.databinding.ActivityDemonDetailsBinding
 import com.think4software.smtfusioncalculator.domain.model.Demon
+import com.think4software.smtfusioncalculator.domain.model.DemonEvolution
 import com.think4software.smtfusioncalculator.domain.model.DemonInheritances
 import com.think4software.smtfusioncalculator.domain.model.DemonResistances
 import com.think4software.smtfusioncalculator.domain.model.Skill
@@ -57,6 +58,7 @@ class DemonDetailsActivity: AppCompatActivity() {
         setupResistancesViews(demon.resistances)
         setupInheritanceViews(demon.inheritances)
         setupSkillsAdapter(demon.skills)
+        setupEvolutions(demon.evolvesFrom, demon.evolvesTo)
     }
 
     private fun setupToolbar(demon: Demon) {
@@ -96,6 +98,22 @@ class DemonDetailsActivity: AppCompatActivity() {
 
     private fun setupSkillsAdapter(skills: List<Skill>) {
         binding.skillsList.adapter = DemonSkillListAdapter(this, skills)
+    }
+
+    private fun setupEvolutions(evolvesFrom: DemonEvolution?, evolvesTo: DemonEvolution?) {
+        evolvesFrom?.let {
+            binding.cardEvolvesFrom.isVisible = true
+            binding.evolvesFromDemon.level.text = it.level.toString()
+            binding.evolvesFromDemon.name.text = it.name
+            binding.evolvesFromDemon.race.text = it.race
+        }
+
+        evolvesTo?.let {
+            binding.cardEvolvesTo.isVisible = true
+            binding.evolvesToDemon.level.text = it.level.toString()
+            binding.evolvesToDemon.name.text = it.name
+            binding.evolvesToDemon.race.text = it.race
+        }
     }
 
     private fun setTabTitles() {
