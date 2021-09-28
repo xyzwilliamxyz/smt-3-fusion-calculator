@@ -7,8 +7,6 @@ import com.think4software.smtfusioncalculator.core.db.AppDatabase
 import com.think4software.smtfusioncalculator.test.R
 import com.think4software.smtfusioncalculator.utils.InMemoryDatabaseBuilder
 import org.junit.Before
-import org.junit.Rule
-import org.junit.rules.TestName
 import org.junit.runner.RunWith
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.loadKoinModules
@@ -27,7 +25,8 @@ abstract class BaseInstrumentedTest: ScreenshotTest {
                     AppDatabase.createDatabase(
                         context = InstrumentationRegistry.getInstrumentation().context,
                         databaseBuilder = get(),
-                        resourceId = R.raw.smt3_test_data
+                        allDataResourceId = R.raw.smt3_test_data,
+                        migrationManager = get()
                     )
                 }
             }

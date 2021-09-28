@@ -3,6 +3,8 @@ package com.think4software.smtfusioncalculator.di
 import com.think4software.smtfusioncalculator.R
 import com.think4software.smtfusioncalculator.core.db.AppDatabase
 import com.think4software.smtfusioncalculator.core.db.DatabaseBuilder
+import com.think4software.smtfusioncalculator.core.db.MigrationFactory
+import com.think4software.smtfusioncalculator.core.db.MigrationManager
 import com.think4software.smtfusioncalculator.dao.mapper.DemonEvolutionMapper
 import com.think4software.smtfusioncalculator.dao.mapper.DemonInheritancesMapper
 import com.think4software.smtfusioncalculator.dao.mapper.DemonMapper
@@ -34,12 +36,15 @@ val useCaseModules = module {
 
 val databaseModules = module {
     factory { DatabaseBuilder.getDatabaseBuilder(context = androidContext()) }
+    factory { MigrationFactory(context = get()) }
+    factory { MigrationManager(migrationFactory = get(), allDataResourceId = R.raw.smt3_data) }
 
     single {
         AppDatabase.createDatabase(
             context = androidContext(),
             databaseBuilder = get(),
-            resourceId = R.raw.smt3_data
+            allDataResourceId = R.raw.smt3_data,
+            migrationManager = get()
         )
     }
 
