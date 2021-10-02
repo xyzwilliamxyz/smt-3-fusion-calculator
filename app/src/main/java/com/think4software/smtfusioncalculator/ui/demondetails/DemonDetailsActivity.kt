@@ -59,6 +59,7 @@ class DemonDetailsActivity: AppCompatActivity() {
         setupInheritanceViews(demon.inheritances)
         setupSkillsAdapter(demon.skills)
         setupEvolutions(demon.evolvesFrom, demon.evolvesTo)
+        setupSpecialFusion(demon)
     }
 
     private fun setupToolbar(demon: Demon) {
@@ -113,6 +114,20 @@ class DemonDetailsActivity: AppCompatActivity() {
             binding.evolvesToDemon.level.text = it.level.toString()
             binding.evolvesToDemon.name.text = it.name
             binding.evolvesToDemon.race.text = it.race
+        }
+    }
+
+    private fun setupSpecialFusion(demon: Demon) {
+        if (demon.specialFusionCondition.isNotEmpty()) {
+            binding.cardSpecialFusionCondition.isVisible = true
+            binding.specialFusionLabel.text = demon.specialFusionCondition
+        }
+
+        demon.specialFusionIngredient?.let {
+            binding.cardSpecialFusionIngredient.isVisible = true
+            binding.specialFusionIngredientDemon.level.text = it.level.toString()
+            binding.specialFusionIngredientDemon.name.text = it.name
+            binding.specialFusionIngredientDemon.race.text = it.race
         }
     }
 

@@ -30,4 +30,6 @@
     <string name="inherit">Inherit</string>
     <string name="evolves_from">Evolves From</string>
     <string name="evolves_to">Evolves To</string>
+    <string name="special_fusion_condition">Special Fusion Condition</string>
+    <string name="special_fusion_ingredient">Special Fusion Ingridient</string>
 </resources>

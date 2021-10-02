@@ -16,6 +16,7 @@ data class Demon(
     var evolvesFrom: DemonEvolution? = null,
     var evolvesTo: DemonEvolution? = null,
     val specialFusionCondition: String = "",
+    val specialFusionIngredient: FusionIngredient?,
     val resistances: DemonResistances,
     val inheritances: DemonInheritances,
     var skills: List<Skill> = listOf(),

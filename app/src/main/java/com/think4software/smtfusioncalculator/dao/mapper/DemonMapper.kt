@@ -40,6 +40,7 @@ class DemonMapper(
             agility = demonEntity.agility,
             luck = demonEntity.luck,
             specialFusionCondition = demonEntity.specialFusionCondition,
+            specialFusionIngredient = null,
             resistances = demonResistancesMapper.toDomain(demonEntity),
             inheritances = demonInheritancesMapper.toDomain(demonEntity),
         )
