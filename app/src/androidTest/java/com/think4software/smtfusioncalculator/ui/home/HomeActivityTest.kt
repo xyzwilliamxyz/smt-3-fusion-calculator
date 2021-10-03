@@ -2,11 +2,8 @@ package com.think4software.smtfusioncalculator.ui.home
 
 import androidx.test.core.app.ActivityScenario
 import androidx.test.core.app.launchActivity
-import androidx.test.espresso.Espresso
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.withId
-import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.karumi.shot.ActivityScenarioUtils.waitForActivity
 import com.think4software.smtfusioncalculator.BaseInstrumentedTest
@@ -40,12 +37,12 @@ class HomeActivityTest: BaseInstrumentedTest() {
         scenario = launchActivity()
 
         scenario.onActivity {
-            it.findViewById<TabLayout>(R.id.tab_layout).disableSmoothAnimation(
+            it.findViewById<TabLayout>(R.id.tlFusionsList).disableSmoothAnimation(
                 it.findViewById(R.id.pager)
             )
         }
 
-        onView(withId(R.id.tab_layout)).perform(TabSelectionAction(1))
+        onView(withId(R.id.tlFusionsList)).perform(TabSelectionAction(1))
 
         compareScreenshot(
             view = scenario.waitForActivity().findViewById(R.id.rootContainer)

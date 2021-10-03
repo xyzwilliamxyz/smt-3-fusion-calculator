@@ -40,13 +40,13 @@ class DemonDetailsActivityTest: BaseInstrumentedTest() {
         scenario = launchActivity(intent)
 
         scenario.onActivity {
-            it.findViewById<TabLayout>(R.id.tab_layout).disableSmoothAnimation(
-                it.findViewById(R.id.fusions_pager)
+            it.findViewById<TabLayout>(R.id.tlFusionsList).disableSmoothAnimation(
+                it.findViewById(R.id.vpFusionsList)
             )
         }
 
         onView(withId(R.id.rootLayout)).perform(swipeUp())
-        onView(withId(R.id.tab_layout)).perform(TabSelectionAction(1))
+        onView(withId(R.id.tlFusionsList)).perform(TabSelectionAction(1))
 
         compareScreenshot(
             view = scenario.waitForActivity().findViewById(R.id.rootContainer)

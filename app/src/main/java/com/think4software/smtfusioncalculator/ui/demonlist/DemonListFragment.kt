@@ -31,9 +31,6 @@ class DemonListFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.container.isVisible = false
-        binding.loading.isVisible = false
-
         setupObservables()
         viewModel.getDemons()
     }
@@ -47,12 +44,15 @@ class DemonListFragment: Fragment() {
         viewModel.screenState.observe(requireActivity()) {
             when (it) {
                 is ScreenState.Success -> {
-                    binding.container.isVisible = true
-                    binding.loading.isVisible = false
+                    binding.iHeader.root.isVisible = true
+                    binding.rvDemonList.isVisible = true
+                    binding.pbLoading.isVisible = false
                     setListData(it.data)
                 }
                 is ScreenState.Loading -> {
-                    binding.loading.isVisible = true
+                    binding.pbLoading.isVisible = true
+                    binding.iHeader.root.isVisible = false
+                    binding.rvDemonList.isVisible = false
                 }
             }
         }
@@ -61,7 +61,7 @@ class DemonListFragment: Fragment() {
     private fun setListData(demonList: List<Demon>) {
         if (!::adapter.isInitialized) {
             adapter = DemonListAdapter(requireActivity(), demonList, ::openDemonDetailsScreen)
-            binding.demonList.adapter = adapter
+            binding.rvDemonList.adapter = adapter
         }
     }
 

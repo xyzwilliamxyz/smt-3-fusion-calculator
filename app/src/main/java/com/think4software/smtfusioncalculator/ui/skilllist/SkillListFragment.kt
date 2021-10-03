@@ -41,9 +41,9 @@ class SkillListFragment: Fragment() {
     }
 
     private fun setupViews() {
-        binding.header.level.isVisible = false
+        binding.iHeader.level.isVisible = false
         binding.container.isVisible = false
-        binding.loading.isVisible = false
+        binding.pbLoading.isVisible = false
 
         adapter = SkillListAdapter(requireActivity())
         binding.skillList.adapter = adapter
@@ -54,11 +54,11 @@ class SkillListFragment: Fragment() {
             when (it) {
                 is SkillListViewModel.ScreenState.Success -> {
                     binding.container.isVisible = true
-                    binding.loading.isVisible = false
+                    binding.pbLoading.isVisible = false
                     setListData(it.data)
                 }
                 else -> {
-                    binding.loading.isVisible = true
+                    binding.pbLoading.isVisible = true
                 }
             }
         }

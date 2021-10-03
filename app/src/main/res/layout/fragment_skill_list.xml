@@ -15,7 +15,7 @@
         android:orientation="vertical">
 
         <include
-            android:id="@+id/header"
+            android:id="@+id/iHeader"
             layout="@layout/skill_list_header" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -30,7 +30,7 @@
     </LinearLayout>
 
     <ProgressBar
-        android:id="@+id/loading"
+        android:id="@+id/pbLoading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"

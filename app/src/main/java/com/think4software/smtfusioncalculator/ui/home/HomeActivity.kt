@@ -1,8 +1,5 @@
 package com.think4software.smtfusioncalculator.ui.home
 
-import android.annotation.SuppressLint
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.tabs.TabLayoutMediator
@@ -21,7 +18,6 @@ class HomeActivity : AppCompatActivity() {
         setupViews()
     }
 
-    @SuppressLint("WrongConstant")
     private fun setupViews() {
         binding.pager.offscreenPageLimit = HomePageAdapter.TAB_COUNT
         binding.pager.adapter = HomePageAdapter(this)
@@ -30,7 +26,7 @@ class HomeActivity : AppCompatActivity() {
 
     private fun setTabTitles() {
         TabLayoutMediator(
-            binding.tabLayout, binding.pager
+            binding.tlFusionsList, binding.pager
         ) { tab, position ->
             tab.text = getString(TAB_TITLES[position])
         }.attach()

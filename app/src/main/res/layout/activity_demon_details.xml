@@ -1,641 +1,841 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:id="@+id/rootLayout"
     tools:context=".ui.demondetails.DemonDetailsActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/rootContainer"
-        android:background="@color/background"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/background">
 
-        <LinearLayout
-            android:id="@+id/container"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvStats"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="@dimen/card_corner"
+            app:cardElevation="@dimen/card_elevation"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            android:orientation="vertical">
+            app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.cardview.widget.CardView
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="16dp"
-                app:cardCornerRadius="@dimen/card_corner"
-                app:cardElevation="@dimen/card_elevation">
+                android:background="@color/list_header"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-                <LinearLayout
+                <TextView
+                    android:id="@+id/tvStatsSection"
+                    style="@style/HighlightTextViewStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        style="@style/HighlightTextViewStyle"
-                        android:paddingVertical="8dp"
-                        android:text="@string/stats" />
+                    android:paddingVertical="8dp"
+                    android:text="@string/stats"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/list_header"
-                        android:orientation="horizontal"
-                        android:paddingVertical="4dp"
-                        android:paddingStart="8dp">
+                <!-- Header -->
+                <TextView
+                    android:id="@+id/priceLabel"
+                    style="@style/HeaderTextViewStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="4dp"
+                    android:text="@string/price"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvStatsSection"
+                    app:layout_constraintWidth_percent="0.2" />
 
-                        <TextView
-                            android:id="@+id/priceLabel"
-                            style="@style/HeaderTextViewStyle"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="0.2"
-                            android:text="@string/price" />
+                <TextView
+                    android:id="@+id/hpLabel"
+                    style="@style/HeaderTextViewStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="4dp"
+                    android:text="@string/hp"
+                    app:layout_constraintLeft_toRightOf="@id/priceLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/tvStatsSection"
+                    app:layout_constraintWidth_percent="0.15" />
 
-                        <TextView
-                            android:id="@+id/hpLabel"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            style="@style/HeaderTextViewStyle"
-                            android:layout_weight="0.15"
-                            android:text="@string/hp" />
+                <TextView
+                    android:id="@+id/mpLabel"
+                    style="@style/HeaderTextViewStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="4dp"
+                    android:text="@string/mp"
+                    app:layout_constraintLeft_toRightOf="@id/hpLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/tvStatsSection"
+                    app:layout_constraintWidth_percent="0.15" />
 
-                        <TextView
-                            android:id="@+id/mpLabel"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            style="@style/HeaderTextViewStyle"
-                            android:layout_weight="0.15"
-                            android:text="@string/mp" />
+                <TextView
+                    android:id="@+id/stLabel"
+                    style="@style/HeaderTextViewStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="4dp"
+                    android:text="@string/st"
+                    app:layout_constraintLeft_toRightOf="@id/mpLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/tvStatsSection"
+                    app:layout_constraintWidth_percent="0.1" />
 
-                        <TextView
-                            android:id="@+id/stLabel"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            style="@style/HeaderTextViewStyle"
-                            android:layout_weight="0.1"
-                            android:text="@string/st" />
+                <TextView
+                    android:id="@+id/maLabel"
+                    style="@style/HeaderTextViewStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="4dp"
+                    android:text="@string/ma"
+                    app:layout_constraintLeft_toRightOf="@id/stLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/tvStatsSection"
+                    app:layout_constraintWidth_percent="0.1" />
 
-                        <TextView
-                            android:id="@+id/maLabel"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            style="@style/HeaderTextViewStyle"
-                            android:layout_weight="0.1"
-                            android:text="@string/ma" />
+                <TextView
+                    android:id="@+id/viLabel"
+                    style="@style/HeaderTextViewStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="4dp"
+                    android:text="@string/vi"
+                    app:layout_constraintLeft_toRightOf="@id/maLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/tvStatsSection"
+                    app:layout_constraintWidth_percent="0.1" />
 
-                        <TextView
-                            android:id="@+id/viLabel"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            style="@style/HeaderTextViewStyle"
-                            android:layout_weight="0.1"
-                            android:text="@string/vi" />
+                <TextView
+                    android:id="@+id/agLabel"
+                    style="@style/HeaderTextViewStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="4dp"
+                    android:text="@string/ag"
+                    app:layout_constraintLeft_toRightOf="@id/viLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/tvStatsSection"
+                    app:layout_constraintWidth_percent="0.1" />
 
-                        <TextView
-                            android:id="@+id/agLabel"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            style="@style/HeaderTextViewStyle"
-                            android:layout_weight="0.1"
-                            android:text="@string/ag" />
+                <TextView
+                    android:id="@+id/luLabel"
+                    style="@style/HeaderTextViewStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="4dp"
+                    android:text="@string/lu"
+                    app:layout_constraintLeft_toRightOf="@id/agLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/tvStatsSection"
+                    app:layout_constraintWidth_percent="0.1" />
 
-                        <TextView
-                            android:id="@+id/luLabel"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            style="@style/HeaderTextViewStyle"
-                            android:layout_weight="0.1"
-                            android:text="@string/lu" />
-                    </LinearLayout>
+                <!-- Values -->
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@color/line_odd"
+                    app:layout_constraintBottom_toBottomOf="@id/price"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/price" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/line_odd"
-                        android:orientation="horizontal"
-                        android:paddingVertical="8dp"
-                        android:paddingStart="8dp">
+                <TextView
+                    android:id="@+id/price"
+                    style="@style/DefaultTextViewStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="8dp"
+                    app:layout_constraintLeft_toLeftOf="@id/priceLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/priceLabel"
+                    app:layout_constraintWidth_percent="0.2"
+                    tools:text="3600" />
 
-                        <TextView
-                            android:id="@+id/price"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            style="@style/DefaultTextViewStyle"
-                            android:layout_weight="0.2"
-                            tools:text="3600" />
+                <TextView
+                    android:id="@+id/hp"
+                    style="@style/DefaultTextViewStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="8dp"
+                    app:layout_constraintLeft_toLeftOf="@id/hpLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/priceLabel"
+                    app:layout_constraintWidth_percent="0.15"
+                    tools:text="78" />
 
-                        <TextView
-                            android:id="@+id/hp"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            style="@style/DefaultTextViewStyle"
-                            android:layout_weight="0.15"
-                            tools:text="78" />
+                <TextView
+                    android:id="@+id/mp"
+                    style="@style/DefaultTextViewStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="8dp"
+                    app:layout_constraintLeft_toLeftOf="@id/mpLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/priceLabel"
+                    app:layout_constraintWidth_percent="0.15"
+                    tools:text="45" />
 
-                        <TextView
-                            android:id="@+id/mp"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            style="@style/DefaultTextViewStyle"
-                            android:layout_weight="0.15"
-                            tools:text="45" />
+                <TextView
+                    android:id="@+id/st"
+                    style="@style/DefaultTextViewStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="8dp"
+                    app:layout_constraintLeft_toLeftOf="@id/stLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/priceLabel"
+                    app:layout_constraintWidth_percent="0.1"
+                    tools:text="5" />
 
-                        <TextView
-                            android:id="@+id/st"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            style="@style/DefaultTextViewStyle"
-                            android:layout_weight="0.1"
-                            tools:text="5" />
+                <TextView
+                    android:id="@+id/ma"
+                    style="@style/DefaultTextViewStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="8dp"
+                    app:layout_constraintLeft_toLeftOf="@id/maLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/priceLabel"
+                    app:layout_constraintWidth_percent="0.1"
+                    tools:text="8" />
 
-                        <TextView
-                            android:id="@+id/ma"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            style="@style/DefaultTextViewStyle"
-                            android:layout_weight="0.1"
-                            tools:text="8" />
+                <TextView
+                    android:id="@+id/vi"
+                    style="@style/DefaultTextViewStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="8dp"
+                    app:layout_constraintLeft_toLeftOf="@id/viLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/priceLabel"
+                    app:layout_constraintWidth_percent="0.1"
+                    tools:text="6" />
 
-                        <TextView
-                            android:id="@+id/vi"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            style="@style/DefaultTextViewStyle"
-                            android:layout_weight="0.1"
-                            tools:text="6" />
+                <TextView
+                    android:id="@+id/ag"
+                    style="@style/DefaultTextViewStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="8dp"
+                    app:layout_constraintLeft_toLeftOf="@id/agLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/priceLabel"
+                    app:layout_constraintWidth_percent="0.1"
+                    tools:text="4" />
 
-                        <TextView
-                            android:id="@+id/ag"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            style="@style/DefaultTextViewStyle"
-                            android:layout_weight="0.1"
-                            tools:text="4" />
+                <TextView
+                    android:id="@+id/lu"
+                    style="@style/DefaultTextViewStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="8dp"
+                    app:layout_constraintLeft_toLeftOf="@id/luLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/priceLabel"
+                    app:layout_constraintWidth_percent="0.1"
+                    tools:text="4" />
 
-                        <TextView
-                            android:id="@+id/lu"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            style="@style/DefaultTextViewStyle"
-                            android:layout_weight="0.1"
-                            tools:text="4" />
-                    </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-                </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-            </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvResistances"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="@dimen/card_corner"
+            app:cardElevation="@dimen/card_elevation"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cvStats">
 
-            <androidx.cardview.widget.CardView
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="16dp"
-                app:cardCornerRadius="@dimen/card_corner"
-                app:cardElevation="@dimen/card_elevation">
+                android:background="@color/list_header">
 
-                <LinearLayout
+                <!-- Header -->
+                <TextView
+                    android:id="@+id/tvResistancesSection"
+                    style="@style/HighlightTextViewStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:paddingVertical="8dp"
+                    android:text="@string/resistances"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        style="@style/HighlightTextViewStyle"
-                        android:paddingVertical="8dp"
-                        android:text="@string/resistances" />
+                <ImageView
+                    android:id="@+id/physicalLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@null"
+                    android:paddingVertical="8dp"
+                    android:src="@drawable/phy"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvResistancesSection"
+                    app:layout_constraintWidth_percent="0.1" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/list_header"
-                        android:orientation="horizontal"
-                        android:paddingVertical="8dp">
+                <ImageView
+                    android:id="@+id/fireLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@null"
+                    android:paddingVertical="8dp"
+                    android:src="@drawable/fir"
+                    app:layout_constraintLeft_toRightOf="@id/physicalLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/tvResistancesSection"
+                    app:layout_constraintWidth_percent="0.1" />
 
-                        <ImageView
-                            android:id="@+id/physicalLabel"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="0.1"
-                            android:src="@drawable/phy"
-                            android:contentDescription="@null"/>
+                <ImageView
+                    android:id="@+id/iceLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@null"
+                    android:paddingVertical="8dp"
+                    android:src="@drawable/ice"
+                    app:layout_constraintLeft_toRightOf="@id/fireLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/tvResistancesSection"
+                    app:layout_constraintWidth_percent="0.1" />
 
-                        <ImageView
-                            android:id="@+id/fireLabel"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="0.1"
-                            android:src="@drawable/fir"
-                            android:contentDescription="@null"/>
+                <ImageView
+                    android:id="@+id/electricLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@null"
+                    android:paddingVertical="8dp"
+                    android:src="@drawable/ele"
+                    app:layout_constraintLeft_toRightOf="@id/iceLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/tvResistancesSection"
+                    app:layout_constraintWidth_percent="0.1" />
 
-                        <ImageView
-                            android:id="@+id/iceLabel"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="0.1"
-                            android:src="@drawable/ice"
-                            android:contentDescription="@null"/>
+                <ImageView
+                    android:id="@+id/forceLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@null"
+                    android:paddingVertical="8dp"
+                    android:src="@drawable/force"
+                    app:layout_constraintLeft_toRightOf="@id/electricLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/tvResistancesSection"
+                    app:layout_constraintWidth_percent="0.1" />
 
-                        <ImageView
-                            android:id="@+id/electricLabel"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="0.1"
-                            android:src="@drawable/ele"
-                            android:contentDescription="@null"/>
+                <ImageView
+                    android:id="@+id/expelLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@null"
+                    android:paddingVertical="8dp"
+                    android:src="@drawable/exp"
+                    app:layout_constraintLeft_toRightOf="@id/forceLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/tvResistancesSection"
+                    app:layout_constraintWidth_percent="0.1" />
 
-                        <ImageView
-                            android:id="@+id/forceLabel"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="0.1"
-                            android:src="@drawable/force"
-                            android:contentDescription="@null"/>
+                <ImageView
+                    android:id="@+id/deathLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@null"
+                    android:paddingVertical="8dp"
+                    android:src="@drawable/cur"
+                    app:layout_constraintLeft_toRightOf="@id/expelLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/tvResistancesSection"
+                    app:layout_constraintWidth_percent="0.1" />
 
-                        <ImageView
-                            android:id="@+id/expelLabel"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="0.1"
-                            android:src="@drawable/exp"
-                            android:contentDescription="@null"/>
+                <ImageView
+                    android:id="@+id/mindLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@null"
+                    android:paddingVertical="8dp"
+                    android:src="@drawable/panic"
+                    app:layout_constraintLeft_toRightOf="@id/deathLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/tvResistancesSection"
+                    app:layout_constraintWidth_percent="0.1" />
 
-                        <ImageView
-                            android:id="@+id/deathLabel"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="0.1"
-                            android:src="@drawable/cur"
-                            android:contentDescription="@null"/>
+                <ImageView
+                    android:id="@+id/nerveLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@null"
+                    android:paddingVertical="8dp"
+                    android:src="@drawable/bind"
+                    app:layout_constraintLeft_toRightOf="@id/mindLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/tvResistancesSection"
+                    app:layout_constraintWidth_percent="0.1" />
 
-                        <ImageView
-                            android:id="@+id/mindLabel"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="0.1"
-                            android:src="@drawable/panic"
-                            android:contentDescription="@null"/>
+                <ImageView
+                    android:id="@+id/curseLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@null"
+                    android:paddingVertical="8dp"
+                    android:src="@drawable/poison"
+                    app:layout_constraintLeft_toRightOf="@id/nerveLabel"
+                    app:layout_constraintTop_toBottomOf="@+id/tvResistancesSection"
+                    app:layout_constraintWidth_percent="0.1" />
 
-                        <ImageView
-                            android:id="@+id/nerveLabel"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="0.1"
-                            android:src="@drawable/bind"
-                            android:contentDescription="@null"/>
+                <!-- Values -->
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@color/line_odd"
+                    app:layout_constraintBottom_toBottomOf="@id/physical"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/physical" />
 
-                        <ImageView
-                            android:id="@+id/curseLabel"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="0.1"
-                            android:src="@drawable/poison"
-                            android:contentDescription="@null"/>
+                <TextView
+                    android:id="@+id/physical"
+                    style="@style/DefaultTextViewStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingVertical="8dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/physicalLabel"
+                    app:layout_constraintWidth_percent="0.1"
+                    tools:text="wk" />
 
-                    </LinearLayout>
+                <TextView
+                    android:id="@+id/fire"
+                    style="@style/DefaultTextViewStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingVertical="8dp"
+                    app:layout_constraintLeft_toLeftOf="@id/fireLabel"
+                    app:layout_constraintTop_toBottomOf="@id/physicalLabel"
+                    app:layout_constraintWidth_percent="0.1"
+                    tools:text="wk" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/line_odd"
-                        android:orientation="horizontal"
-                        android:paddingVertical="8dp">
+                <TextView
+                    android:id="@+id/ice"
+                    style="@style/DefaultTextViewStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingVertical="8dp"
+                    app:layout_constraintLeft_toLeftOf="@id/iceLabel"
+                    app:layout_constraintTop_toBottomOf="@id/physicalLabel"
+                    app:layout_constraintWidth_percent="0.1"
+                    tools:text="wk" />
 
-                        <TextView
-                            android:id="@+id/physical"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            style="@style/DefaultTextViewStyle"
-                            android:layout_weight="0.1"
-                            android:gravity="center"
-                            tools:text="wk" />
+                <TextView
+                    android:id="@+id/electric"
+                    style="@style/DefaultTextViewStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingVertical="8dp"
+                    app:layout_constraintLeft_toLeftOf="@id/electricLabel"
+                    app:layout_constraintTop_toBottomOf="@id/physicalLabel"
+                    app:layout_constraintWidth_percent="0.1"
+                    tools:text="wk" />
 
-                        <TextView
-                            android:id="@+id/fire"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            style="@style/DefaultTextViewStyle"
-                            android:layout_weight="0.1"
-                            android:gravity="center"
-                            tools:text="wk" />
+                <TextView
+                    android:id="@+id/force"
+                    style="@style/DefaultTextViewStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingVertical="8dp"
+                    app:layout_constraintLeft_toLeftOf="@id/forceLabel"
+                    app:layout_constraintTop_toBottomOf="@id/physicalLabel"
+                    app:layout_constraintWidth_percent="0.1"
+                    tools:text="wk" />
 
-                        <TextView
-                            android:id="@+id/ice"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            style="@style/DefaultTextViewStyle"
-                            android:layout_weight="0.1"
-                            android:gravity="center"
-                            tools:text="wk" />
+                <TextView
+                    android:id="@+id/expel"
+                    style="@style/DefaultTextViewStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingVertical="8dp"
+                    app:layout_constraintLeft_toLeftOf="@id/expelLabel"
+                    app:layout_constraintTop_toBottomOf="@id/physicalLabel"
+                    app:layout_constraintWidth_percent="0.1"
+                    tools:text="wk" />
 
-                        <TextView
-                            android:id="@+id/electric"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            style="@style/DefaultTextViewStyle"
-                            android:layout_weight="0.1"
-                            android:gravity="center"
-                            tools:text="wk" />
+                <TextView
+                    android:id="@+id/death"
+                    style="@style/DefaultTextViewStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingVertical="8dp"
+                    app:layout_constraintLeft_toLeftOf="@id/deathLabel"
+                    app:layout_constraintTop_toBottomOf="@id/physicalLabel"
+                    app:layout_constraintWidth_percent="0.1"
+                    tools:text="wk" />
 
-                        <TextView
-                            android:id="@+id/force"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            style="@style/DefaultTextViewStyle"
-                            android:layout_weight="0.1"
-                            android:gravity="center"
-                            tools:text="wk" />
+                <TextView
+                    android:id="@+id/mind"
+                    style="@style/DefaultTextViewStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingVertical="8dp"
+                    app:layout_constraintLeft_toLeftOf="@id/mindLabel"
+                    app:layout_constraintTop_toBottomOf="@id/physicalLabel"
+                    app:layout_constraintWidth_percent="0.1"
+                    tools:text="wk" />
 
-                        <TextView
-                            android:id="@+id/expel"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            style="@style/DefaultTextViewStyle"
-                            android:layout_weight="0.1"
-                            android:gravity="center"
-                            tools:text="wk" />
+                <TextView
+                    android:id="@+id/nerve"
+                    style="@style/DefaultTextViewStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingVertical="8dp"
+                    app:layout_constraintLeft_toLeftOf="@id/nerveLabel"
+                    app:layout_constraintTop_toBottomOf="@id/physicalLabel"
+                    app:layout_constraintWidth_percent="0.1"
+                    tools:text="wk" />
 
-                        <TextView
-                            android:id="@+id/death"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            style="@style/DefaultTextViewStyle"
-                            android:layout_weight="0.1"
-                            android:gravity="center"
-                            tools:text="wk" />
+                <TextView
+                    android:id="@+id/curse"
+                    style="@style/DefaultTextViewStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingVertical="8dp"
+                    app:layout_constraintLeft_toLeftOf="@id/curseLabel"
+                    app:layout_constraintTop_toBottomOf="@id/physicalLabel"
+                    app:layout_constraintWidth_percent="0.1"
+                    tools:text="wk" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-                        <TextView
-                            android:id="@+id/mind"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            style="@style/DefaultTextViewStyle"
-                            android:layout_weight="0.1"
-                            android:gravity="center"
-                            tools:text="wk" />
+        </androidx.cardview.widget.CardView>
 
-                        <TextView
-                            android:id="@+id/nerve"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            style="@style/DefaultTextViewStyle"
-                            android:layout_weight="0.1"
-                            android:gravity="center"
-                            tools:text="wk" />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvInheritableSkillsType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="@dimen/card_corner"
+            app:cardElevation="@dimen/card_elevation"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cvResistances">
 
-                        <TextView
-                            android:id="@+id/curse"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            style="@style/DefaultTextViewStyle"
-                            android:layout_weight="0.1"
-                            android:gravity="center"
-                            tools:text="wk" />
-                    </LinearLayout>
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="16dp"
-                app:cardCornerRadius="@dimen/card_corner"
-                app:cardElevation="@dimen/card_elevation">
+                android:background="@color/list_header">
 
-                <LinearLayout
+                <TextView
+                    android:id="@+id/tvInheritableSkillsTypeSection"
+                    style="@style/HighlightTextViewStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:paddingVertical="8dp"
+                    android:text="@string/inheritable_skills_type"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        style="@style/HighlightTextViewStyle"
-                        android:paddingVertical="8dp"
-                        android:text="@string/inheritable_skills_type" />
+                <TextView
+                    android:id="@+id/inheritancesLabel"
+                    style="@style/DefaultTextViewStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="4dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvInheritableSkillsTypeSection"
+                    tools:text="Thrust  |  Claw  |  Bite" />
 
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/list_header"
-                        android:paddingHorizontal="8dp"
-                        android:paddingVertical="4dp">
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
 
-                        <TextView
-                            android:id="@+id/inheritancesLabel"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            style="@style/DefaultTextViewStyle"
-                            tools:text="Thrust  |  Claw  |  Bite" />
-                    </FrameLayout>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvSkills"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="@dimen/card_corner"
+            app:cardElevation="@dimen/card_elevation"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cvInheritableSkillsType">
 
-            <androidx.cardview.widget.CardView
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="16dp"
-                app:cardCornerRadius="@dimen/card_corner"
-                app:cardElevation="@dimen/card_elevation">
+                android:layout_height="wrap_content">
 
-                <LinearLayout
+                <TextView
+                    android:id="@+id/tvSkillsSection"
+                    style="@style/HighlightTextViewStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:paddingVertical="8dp"
+                    android:text="@string/skills"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        style="@style/HighlightTextViewStyle"
-                        android:paddingVertical="8dp"
-                        android:text="@string/skills" />
-
-                    <include
-                        layout="@layout/skill_list_header" />
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/skills_list"
-                        android:clipToPadding="false"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        android:orientation="vertical"
-                        android:nestedScrollingEnabled="false"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        tools:listitem="@layout/skill_list_item"
-                        tools:itemCount="10" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card_evolves_from"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="16dp"
-                android:visibility="gone"
-                app:cardCornerRadius="@dimen/card_corner"
-                app:cardElevation="@dimen/card_elevation">
-
-                <LinearLayout
+                <include
+                    android:id="@+id/iSkillListHeader"
+                    layout="@layout/skill_list_header"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvSkillsSection" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        style="@style/HighlightTextViewStyle"
-                        android:paddingVertical="8dp"
-                        android:text="@string/evolves_from" />
-
-                    <include layout="@layout/demon_list_header" />
-                    <include
-                        android:id="@+id/evolves_from_demon"
-                        layout="@layout/demon_list_item" />
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card_evolves_to"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="16dp"
-                android:visibility="gone"
-                app:cardCornerRadius="@dimen/card_corner"
-                app:cardElevation="@dimen/card_elevation">
-
-                <LinearLayout
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvSkills"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        style="@style/HighlightTextViewStyle"
-                        android:paddingVertical="8dp"
-                        android:text="@string/evolves_to" />
-
-                    <include
-                        layout="@layout/demon_list_header" />
-                    <include
-                        android:id="@+id/evolves_to_demon"
-                        layout="@layout/demon_list_item" />
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card_special_fusion_condition"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="16dp"
-                app:cardCornerRadius="@dimen/card_corner"
-                app:cardElevation="@dimen/card_elevation"
-                android:visibility="gone"
-                tools:visibility="visible">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        style="@style/HighlightTextViewStyle"
-                        android:paddingVertical="8dp"
-                        android:text="@string/special_fusion_condition" />
-
-                    <TextView
-                        android:id="@+id/specialFusionLabel"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@color/list_header"
-                        android:paddingVertical="4dp"
-                        android:paddingHorizontal="8dp"
-                        style="@style/DefaultTextViewStyle"
-                        tools:text="Requires Sacrificial Fusion" />
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card_special_fusion_ingredient"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="16dp"
-                app:cardCornerRadius="@dimen/card_corner"
-                app:cardElevation="@dimen/card_elevation"
-                android:visibility="gone"
-                tools:visibility="visible">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        style="@style/HighlightTextViewStyle"
-                        android:paddingVertical="8dp"
-                        android:text="@string/special_fusion_ingredient" />
-
-                    <include
-                        layout="@layout/demon_list_header" />
-                    <include
-                        android:id="@+id/special_fusion_ingredient_demon"
-                        layout="@layout/demon_list_item" />
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="16dp"
-                android:orientation="vertical">
-
-                <com.google.android.material.tabs.TabLayout
-                    android:id="@+id/tab_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/highlight"
-                    app:tabTextColor="@color/default_text"
-                    app:tabIndicatorColor="@color/white" />
-
-                <androidx.viewpager2.widget.ViewPager2
-                    android:id="@+id/fusions_pager"
+                    android:layout_height="0dp"
+                    android:clipToPadding="false"
                     android:nestedScrollingEnabled="false"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iSkillListHeader"
+                    tools:itemCount="2"
+                    tools:listitem="@layout/skill_list_item" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
 
-        </LinearLayout>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvEvolvesFrom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:visibility="gone"
+            app:cardCornerRadius="@dimen/card_corner"
+            app:cardElevation="@dimen/card_elevation"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cvSkills"
+            tools:visibility="visible">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tvEvolvesFromSection"
+                    style="@style/HighlightTextViewStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="8dp"
+                    android:text="@string/evolves_from"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <include
+                    android:id="@+id/iEvolvesFromHeader"
+                    layout="@layout/demon_list_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvEvolvesFromSection" />
+
+                <include
+                    android:id="@+id/evolves_from_demon"
+                    layout="@layout/demon_list_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/iEvolvesFromHeader" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvEvolvesTo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:visibility="gone"
+            app:cardCornerRadius="@dimen/card_corner"
+            app:cardElevation="@dimen/card_elevation"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cvEvolvesFrom"
+            tools:visibility="visible">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tvEvolvesToSection"
+                    style="@style/HighlightTextViewStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="8dp"
+                    android:text="@string/evolves_to"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <include
+                    android:id="@+id/iEvolvesToHeader"
+                    layout="@layout/demon_list_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvEvolvesToSection" />
+
+                <include
+                    android:id="@+id/iEvolvesToDemon"
+                    layout="@layout/demon_list_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/iEvolvesToHeader" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvSpecialFusionCondition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:visibility="gone"
+            app:cardCornerRadius="@dimen/card_corner"
+            app:cardElevation="@dimen/card_elevation"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cvEvolvesTo"
+            tools:visibility="visible">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tvSpecialFusionConditionSection"
+                    style="@style/HighlightTextViewStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="8dp"
+                    android:text="@string/special_fusion_condition"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/specialFusionLabel"
+                    style="@style/DefaultTextViewStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/list_header"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="4dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvSpecialFusionConditionSection"
+                    tools:text="Requires Sacrificial Fusion" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvSpecialFusionIngredient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:visibility="gone"
+            app:cardCornerRadius="@dimen/card_corner"
+            app:cardElevation="@dimen/card_elevation"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cvSpecialFusionCondition"
+            tools:visibility="visible">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tvSpecialFusionIngredientSection"
+                    style="@style/HighlightTextViewStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="8dp"
+                    android:text="@string/special_fusion_ingredient"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <include
+                    android:id="@+id/iSpecialFusionIngredientHeader"
+                    layout="@layout/demon_list_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvSpecialFusionIngredientSection" />
+
+                <include
+                    android:id="@+id/iSpecialFusionIngredientDemon"
+                    layout="@layout/demon_list_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iSpecialFusionIngredientHeader" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tlFusionsList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@color/highlight"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cvSpecialFusionIngredient"
+            app:tabIndicatorColor="@color/white"
+            app:tabTextColor="@color/default_text" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/vpFusionsList"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="16dp"
+            android:nestedScrollingEnabled="false"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tlFusionsList" />
 
         <ProgressBar
-            android:id="@+id/loading"
+            android:id="@+id/pbLoading"
+            style="@style/ProgressBarStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/ProgressBarStyle"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintTop_toTopOf="parent" />
 
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/gContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="cvStats,cvResistances,cvInheritableSkillsType,cvSkills,tlFusionsList,vpFusionsList" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.core.widget.NestedScrollView>

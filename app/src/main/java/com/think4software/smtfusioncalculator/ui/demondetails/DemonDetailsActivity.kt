@@ -38,15 +38,15 @@ class DemonDetailsActivity: AppCompatActivity() {
         viewModel.screenState.observe(this) {
             when (it) {
                 is DemonDetailsViewModel.ScreenState.Success -> {
-                    binding.container.isVisible = true
-                    binding.loading.isVisible = false
+                    binding.gContent.isVisible = true
+                    binding.pbLoading.isVisible = false
                     setupViews(it.data)
-                    binding.fusionsPager.adapter = DemonFusionPageAdapter(this, it.data)
+                    binding.vpFusionsList.adapter = DemonFusionPageAdapter(this, it.data)
                     setTabTitles()
                 }
                 is DemonDetailsViewModel.ScreenState.Loading -> {
-                    binding.container.isVisible = false
-                    binding.loading.isVisible = true
+                    binding.gContent.isVisible = false
+                    binding.pbLoading.isVisible = true
                 }
             }
         }
@@ -98,42 +98,42 @@ class DemonDetailsActivity: AppCompatActivity() {
     }
 
     private fun setupSkillsAdapter(skills: List<Skill>) {
-        binding.skillsList.adapter = DemonSkillListAdapter(this, skills)
+        binding.rvSkills.adapter = DemonSkillListAdapter(this, skills)
     }
 
     private fun setupEvolutions(evolvesFrom: DemonEvolution?, evolvesTo: DemonEvolution?) {
         evolvesFrom?.let {
-            binding.cardEvolvesFrom.isVisible = true
+            binding.cvEvolvesFrom.isVisible = true
             binding.evolvesFromDemon.level.text = it.level.toString()
             binding.evolvesFromDemon.name.text = it.name
             binding.evolvesFromDemon.race.text = it.race
         }
 
         evolvesTo?.let {
-            binding.cardEvolvesTo.isVisible = true
-            binding.evolvesToDemon.level.text = it.level.toString()
-            binding.evolvesToDemon.name.text = it.name
-            binding.evolvesToDemon.race.text = it.race
+            binding.cvEvolvesTo.isVisible = true
+            binding.iEvolvesToDemon.level.text = it.level.toString()
+            binding.iEvolvesToDemon.name.text = it.name
+            binding.iEvolvesToDemon.race.text = it.race
         }
     }
 
     private fun setupSpecialFusion(demon: Demon) {
         if (demon.specialFusionCondition.isNotEmpty()) {
-            binding.cardSpecialFusionCondition.isVisible = true
+            binding.cvSpecialFusionCondition.isVisible = true
             binding.specialFusionLabel.text = demon.specialFusionCondition
         }
 
         demon.specialFusionIngredient?.let {
-            binding.cardSpecialFusionIngredient.isVisible = true
-            binding.specialFusionIngredientDemon.level.text = it.level.toString()
-            binding.specialFusionIngredientDemon.name.text = it.name
-            binding.specialFusionIngredientDemon.race.text = it.race
+            binding.cvSpecialFusionIngredient.isVisible = true
+            binding.iSpecialFusionIngredientDemon.level.text = it.level.toString()
+            binding.iSpecialFusionIngredientDemon.name.text = it.name
+            binding.iSpecialFusionIngredientDemon.race.text = it.race
         }
     }
 
     private fun setTabTitles() {
         TabLayoutMediator(
-            binding.tabLayout, binding.fusionsPager
+            binding.tlFusionsList, binding.vpFusionsList
         ) { tab, position ->
             tab.text = getString(TAB_TITLES[position])
         }.attach()
