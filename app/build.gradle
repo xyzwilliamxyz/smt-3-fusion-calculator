@@ -26,13 +26,13 @@ android {
             keyPassword properties.getProperty('keyPassword')
         }
     }
-    compileSdkVersion 30
-    buildToolsVersion "30.0.3"
+    compileSdkVersion 31
+    buildToolsVersion "31.0.0"
 
     defaultConfig {
         applicationId "com.think4software.smtfusioncalculator"
         minSdkVersion 22
-        targetSdkVersion 30
+        targetSdkVersion 31
         versionCode 1
         versionName "1.0"
 
@@ -67,12 +67,16 @@ android {
         disable 'RtlHardcoded','RtlCompat', 'RtlEnabled'
     }
     testOptions {
-        unitTests.includeAndroidResources = true
         animationsDisabled = true
     }
     packagingOptions {
         exclude 'META-INF/*'
     }
+}
+
+tasks.withType(Test) {
+    jacoco.includeNoLocationClasses = true
+    jacoco.excludes = ['jdk.internal.*']
 }
 
 dependencies {

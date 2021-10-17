@@ -11,15 +11,19 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="false"
         android:theme="@style/Theme.SMTFusionCalculator">
-        <activity android:name=".ui.home.HomeActivity">
+        <activity
+            android:name=".ui.home.HomeActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.demondetails.DemonDetailsActivity"
-            android:theme="@style/Theme.SMTFusionCalculator.NoActionBar"/>
+        <activity
+            android:name=".ui.demondetails.DemonDetailsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.SMTFusionCalculator.NoActionBar" />
     </application>
 
 </manifest>
