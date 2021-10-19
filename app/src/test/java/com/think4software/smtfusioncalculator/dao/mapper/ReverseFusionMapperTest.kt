@@ -1,12 +1,12 @@
 package com.think4software.smtfusioncalculator.dao.mapper
 
 import com.think4software.smtfusioncalculator.dao.join.ReverseFusionJoin
-import com.think4software.smtfusioncalculator.infrastructure.BaseTest
+import com.think4software.smtfusioncalculator.factory.DemonFactory.getReverseFusionJoin
 import org.junit.Test
 import kotlin.test.assertEquals
 
 
-class ReverseFusionMapperTest: BaseTest() {
+class ReverseFusionMapperTest {
 
     private val mapper = ReverseFusionMapper()
 

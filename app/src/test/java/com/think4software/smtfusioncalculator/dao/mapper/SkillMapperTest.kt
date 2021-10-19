@@ -3,11 +3,12 @@ package com.think4software.smtfusioncalculator.dao.mapper
 import com.think4software.smtfusioncalculator.dao.entity.SkillEntity
 import com.think4software.smtfusioncalculator.domain.enums.ElementType
 import com.think4software.smtfusioncalculator.domain.enums.InheritableSkillType
-import com.think4software.smtfusioncalculator.infrastructure.BaseTest
+import com.think4software.smtfusioncalculator.factory.DemonFactory.getDemonSkillAndSkillJoin
+import com.think4software.smtfusioncalculator.factory.DemonFactory.getSkillEntity
 import org.junit.Test
 import kotlin.test.assertEquals
 
-class SkillMapperTest: BaseTest() {
+class SkillMapperTest {
 
     private val mapper = SkillMapper()
 

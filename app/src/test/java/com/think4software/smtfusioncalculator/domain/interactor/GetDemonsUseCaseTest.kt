@@ -8,7 +8,7 @@ import com.think4software.smtfusioncalculator.dao.mapper.DemonResistancesMapper
 import com.think4software.smtfusioncalculator.dao.mapper.ForwardFusionMapper
 import com.think4software.smtfusioncalculator.dao.mapper.ReverseFusionMapper
 import com.think4software.smtfusioncalculator.dao.mapper.SkillMapper
-import com.think4software.smtfusioncalculator.infrastructure.BaseTest
+import com.think4software.smtfusioncalculator.factory.DemonFactory.getDemonEntity
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.Dispatchers
@@ -17,7 +17,7 @@ import org.junit.Before
 import org.junit.Test
 import kotlin.test.assertEquals
 
-class GetDemonsUseCaseTest: BaseTest() {
+class GetDemonsUseCaseTest {
 
     private lateinit var getDemonsUseCase: GetDemonsUseCase
 

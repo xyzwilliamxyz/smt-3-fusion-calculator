@@ -1,11 +1,11 @@
 package com.think4software.smtfusioncalculator.dao.mapper
 
 import com.think4software.smtfusioncalculator.dao.join.ForwardFusionJoin
-import com.think4software.smtfusioncalculator.infrastructure.BaseTest
+import com.think4software.smtfusioncalculator.factory.DemonFactory.getForwardFusionJoin
 import org.junit.Test
 import kotlin.test.assertEquals
 
-class ForwardFusionMapperTest: BaseTest() {
+class ForwardFusionMapperTest {
 
     private val mapper = ForwardFusionMapper()
 

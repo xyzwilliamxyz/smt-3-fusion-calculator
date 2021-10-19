@@ -2,7 +2,7 @@ package com.think4software.smtfusioncalculator.domain.interactor
 
 import com.think4software.smtfusioncalculator.dao.SkillDao
 import com.think4software.smtfusioncalculator.dao.mapper.SkillMapper
-import com.think4software.smtfusioncalculator.infrastructure.BaseTest
+import com.think4software.smtfusioncalculator.factory.DemonFactory.getSkillEntity
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.Dispatchers
@@ -11,7 +11,7 @@ import org.junit.Before
 import org.junit.Test
 import kotlin.test.assertEquals
 
-class GetSkillsUseCaseTest: BaseTest() {
+class GetSkillsUseCaseTest {
 
     private lateinit var getSkillsUseCase: GetSkillsUseCase
 

@@ -1,11 +1,12 @@
 package com.think4software.smtfusioncalculator.dao.mapper
 
 import com.think4software.smtfusioncalculator.dao.entity.DemonEntity
-import com.think4software.smtfusioncalculator.infrastructure.BaseTest
+import com.think4software.smtfusioncalculator.factory.DemonFactory.getDemonAndDemonSkillsAndDemonFusionsJoin
+import com.think4software.smtfusioncalculator.factory.DemonFactory.getDemonEntity
 import org.junit.Test
 import kotlin.test.assertEquals
 
-class DemonMapperTest: BaseTest() {
+class DemonMapperTest {
 
     private val mapper = DemonMapper(
         demonEvolutionMapper = DemonEvolutionMapper(),

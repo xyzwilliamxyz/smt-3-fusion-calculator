@@ -1,11 +1,11 @@
 package com.think4software.smtfusioncalculator.dao.mapper
 
 import com.think4software.smtfusioncalculator.domain.enums.ResistanceType
-import com.think4software.smtfusioncalculator.infrastructure.BaseTest
+import com.think4software.smtfusioncalculator.factory.DemonFactory.getDemonEntity
 import org.junit.Test
 import kotlin.test.assertEquals
 
-class DemonResistancesMapperTest: BaseTest() {
+class DemonResistancesMapperTest {
 
     private val mapper = DemonResistancesMapper()
 

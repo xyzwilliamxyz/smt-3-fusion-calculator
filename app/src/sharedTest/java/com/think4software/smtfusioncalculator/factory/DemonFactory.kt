@@ -1,4 +1,4 @@
-package com.think4software.smtfusioncalculator.infrastructure
+package com.think4software.smtfusioncalculator.factory
 
 import com.think4software.smtfusioncalculator.dao.entity.DemonEntity
 import com.think4software.smtfusioncalculator.dao.entity.DemonSkillEntity
@@ -10,7 +10,7 @@ import com.think4software.smtfusioncalculator.dao.join.DemonSkillAndSkillJoin
 import com.think4software.smtfusioncalculator.dao.join.ForwardFusionJoin
 import com.think4software.smtfusioncalculator.dao.join.ReverseFusionJoin
 
-abstract class BaseTest {
+object DemonFactory {
 
     fun getDemonEntity(
         demonId: Int = 1,
