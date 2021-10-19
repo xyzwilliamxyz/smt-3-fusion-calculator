@@ -12,7 +12,7 @@ class ReverseFusionAdapter(
     private val context: Context,
     private val fusions: List<ReverseFusion>,
     private val onItemClick: (demonId: Int) -> Unit
-): RecyclerView.Adapter<ReverseFusionAdapter.ReverseFusionItemViewHolder>() {
+) : RecyclerView.Adapter<ReverseFusionAdapter.ReverseFusionItemViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReverseFusionItemViewHolder {
         val binding = ReverseFusionItemBinding.inflate(LayoutInflater.from(context), parent, false)
@@ -27,7 +27,9 @@ class ReverseFusionAdapter(
         return fusions.size
     }
 
-    inner class ReverseFusionItemViewHolder(private val binding: ReverseFusionItemBinding): RecyclerView.ViewHolder(binding.root) {
+    inner class ReverseFusionItemViewHolder(
+        private val binding: ReverseFusionItemBinding
+    ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(fusion: ReverseFusion, position: Int) {
             binding.ingredientOneRace.text = fusion.ingredientOne.race

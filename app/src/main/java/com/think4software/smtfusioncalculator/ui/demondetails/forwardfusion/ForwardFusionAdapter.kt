@@ -14,7 +14,7 @@ class ForwardFusionAdapter(
     private val context: Context,
     private val fusions: List<ForwardFusion>,
     private val onItemClick: (demonId: Int) -> Unit
-): RecyclerView.Adapter<ForwardFusionAdapter.ForwardFusionItemViewHolder>() {
+) : RecyclerView.Adapter<ForwardFusionAdapter.ForwardFusionItemViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ForwardFusionItemViewHolder {
         val binding = ForwardFusionItemBinding.inflate(LayoutInflater.from(context), parent, false)
@@ -29,7 +29,9 @@ class ForwardFusionAdapter(
         return fusions.size
     }
 
-    inner class ForwardFusionItemViewHolder(private val binding: ForwardFusionItemBinding): RecyclerView.ViewHolder(binding.root) {
+    inner class ForwardFusionItemViewHolder(
+        private val binding: ForwardFusionItemBinding
+    ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(fusion: ForwardFusion, position: Int) {
             binding.ingredientTwoRace.text = fusion.ingredientTwo.race

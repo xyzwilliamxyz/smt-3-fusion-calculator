@@ -12,14 +12,17 @@ import com.think4software.smtfusioncalculator.domain.model.Skill
 class DemonSkillListAdapter(
     private val context: Context,
     private val skills: List<Skill>,
-): RecyclerView.Adapter<DemonSkillListAdapter.DemonSkillItemViewHolder>() {
+) : RecyclerView.Adapter<DemonSkillListAdapter.DemonSkillItemViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DemonSkillItemViewHolder {
         val binding = SkillListItemBinding.inflate(LayoutInflater.from(context), parent, false)
         return DemonSkillItemViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: DemonSkillListAdapter.DemonSkillItemViewHolder, position: Int) {
+    override fun onBindViewHolder(
+        holder: DemonSkillListAdapter.DemonSkillItemViewHolder,
+        position: Int
+    ) {
         holder.bind(skills[position], position)
     }
 
@@ -27,10 +30,17 @@ class DemonSkillListAdapter(
         return skills.size
     }
 
-    inner class DemonSkillItemViewHolder(private val binding: SkillListItemBinding): RecyclerView.ViewHolder(binding.root) {
+    inner class DemonSkillItemViewHolder(
+        private val binding: SkillListItemBinding
+    ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(skill: Skill, position: Int) {
-            binding.element.setImageDrawable(ContextCompat.getDrawable(context, skill.element.drawable))
+            binding.element.setImageDrawable(
+                ContextCompat.getDrawable(
+                    context,
+                    skill.element.drawable
+                )
+            )
             binding.element.contentDescription = skill.element.description
             binding.name.text = skill.name
             binding.cost.text = skill.cost
