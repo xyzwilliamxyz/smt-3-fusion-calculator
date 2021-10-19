@@ -27,7 +27,9 @@ class ReverseFusionFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         arguments?.getParcelableArrayList<ReverseFusion>(ARGUMENT_FUSIONS)?.let {
             binding.reverseFusionList.adapter = ReverseFusionAdapter(requireContext(), it) { demonId ->
-                DemonDetailsActivity.getIntent(requireContext(), demonId)
+                requireContext().startActivity(
+                    DemonDetailsActivity.getIntent(requireContext(), demonId)
+                )
             }
         }
     }

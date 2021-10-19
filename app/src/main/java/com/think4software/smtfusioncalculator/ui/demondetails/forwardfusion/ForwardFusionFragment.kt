@@ -26,7 +26,9 @@ class ForwardFusionFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         arguments?.getParcelableArrayList<ForwardFusion>(ARGUMENT_FUSIONS)?.let {
             binding.forwardFusionList.adapter = ForwardFusionAdapter(requireContext(), it) { demonId ->
-                DemonDetailsActivity.getIntent(requireContext(), demonId)
+                requireContext().startActivity(
+                    DemonDetailsActivity.getIntent(requireContext(), demonId)
+                )
             }
         }
     }
