@@ -1,5 +1,6 @@
 package com.think4software.smtfusioncalculator.ui.home
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.tabs.TabLayoutMediator
@@ -18,6 +19,7 @@ class HomeActivity : AppCompatActivity() {
         setupViews()
     }
 
+    @SuppressLint("WrongConstant") // false positive from lint
     private fun setupViews() {
         binding.pager.offscreenPageLimit = HomePageAdapter.TAB_COUNT
         binding.pager.adapter = HomePageAdapter(this)
